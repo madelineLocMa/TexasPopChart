@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Growth Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .chart-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chart-title">Texas Growth Comparison</div>
+    <div id="chart"></div>
+
+    <script>
+        // Sample data (replace with actual dataset)
+        var categories = ["Population Growth", "Job Growth", "Housing Development"];
+        var collinCountyData = [2.9, 3.8, 4.5];  // Example values
+        var texasData = [2.7, 3.5, 4.2];
+        var usData = [1.9, 2.1, 2.8];
+
+        // Round all values to the nearest whole number
+        collinCountyData = collinCountyData.map(Math.round);
+        texasData = texasData.map(Math.round);
+        usData = usData.map(Math.round);
+
+        var traceCollinCounty = {
+            x: categories,
+            y: collinCountyData,
+            type: "bar",
+            name: "Collin County",
+            marker: { color: "#87CEFA" } // Light Blue
+        };
+
+        var traceTexas = {
+            x: categories,
+            y: texasData,
+            type: "bar",
+            name: "Texas",
+            marker: { color: "#FF0000" } // Red
+        };
+
+        var traceUS = {
+            x: categories,
+            y: usData,
+            type: "bar",
+            name: "US National Growth",
+            marker: { color: "#00008B" } // Dark Blue
+        };
+
+        var layout = {
+            title: "Collin County vs Texas vs US Growth",
+            font: { family: "Montserrat, sans-serif", size: 16 },
+            barmode: "group"
+        };
+
+        Plotly.newPlot("chart", [traceCollinCounty, traceTexas, traceUS], layout);
+    </script>
+
+</body>
+</html>
