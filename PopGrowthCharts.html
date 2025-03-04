@@ -81,10 +81,23 @@
                                 weight: 'bold'
                             }
                         }
+                    },
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'top',
+                        color: 'black',
+                        font: {
+                            weight: 'bold',
+                            size: 12
+                        },
+                        formatter: (value) => value + '%'
                     }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </body>
 </html>
+
